@@ -44,4 +44,18 @@ class PersistenceTest {
         var rewards=new RaidConfig.Rewards();rewards.items.getFirst().maximum=0;
         assertThrows(IllegalArgumentException.class,rewards::validate);
     }
+    @Test void concurrentPlayerLimitDefaultsTo100AndPreservesLegacyChoices() throws Exception {
+        var defaults = new RaidConfig(); defaults.validate();
+        assertEquals(100, defaults.maximumParticipants);
+        var path = dir.resolve("config.json");
+        Files.writeString(path, "{\"maximumParticipants\":25}");
+        assertEquals(25, JsonFiles.read(path, RaidConfig.class).maximumParticipants);
+        Files.writeString(path, "{\"maxConcurrentPlayers\":50}");
+        var custom = JsonFiles.read(path, RaidConfig.class);
+        assertEquals(50, custom.maximumParticipants);
+        JsonFiles.write(path, custom);
+        assertTrue(Files.readString(path).contains("\"maxConcurrentPlayers\""));
+        defaults.maximumParticipants = 101;
+        assertThrows(IllegalArgumentException.class, defaults::validate);
+    }
 }

@@ -9,7 +9,10 @@ public final class RaidConfig {
     public double x = 0, y = 80, z = 0;
     public boolean spawnConfigured = false;
     public double arenaRadius = 48, attackRange = 32;
-    public int attackCooldownTicks = 40, maximumParticipants = 32;
+    public int attackCooldownTicks = 40;
+    // Accept existing installations without overwriting their explicit limits.
+    @com.google.gson.annotations.SerializedName(value = "maxConcurrentPlayers", alternate = {"maximumParticipants"})
+    public int maximumParticipants = 100;
     public int bossAttackSeconds = 5, bossDamage = 10;
     public String restartPolicy = "SKIP_MISSED";
     public List<Integer> warningsSeconds = List.of(900,300,60);

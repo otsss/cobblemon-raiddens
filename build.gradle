@@ -7,6 +7,11 @@ version = providers.gradleProperty('mod_version').get()
 base { archivesName = 'Shirokai-Raids' }
 repositories {
     mavenCentral()
+    // Official Cobblemon publication destination; also works when artefacts is unavailable.
+    maven {
+        url = 'https://maven.impactdev.net/repository/development/'
+        content { includeGroup 'com.cobblemon' }
+    }
     maven { url = 'https://artefacts.cobblemon.com/releases' }
 }
 dependencies {

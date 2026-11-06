@@ -1,6 +1,7 @@
 # Source this file in the managed cloud environment; contains no credentials.
 export JAVA_HOME=/workspace/shared/jdk
 export PATH="$JAVA_HOME/bin:$PATH"
+export GRADLE_USER_HOME="${GRADLE_USER_HOME:-/workspace/.gradle}"
 if [ -n "${HTTPS_PROXY:-}" ]; then
     raids_proxy_host=$(python3 -c 'import os,urllib.parse; print(urllib.parse.urlparse(os.environ["HTTPS_PROXY"]).hostname)')
     raids_proxy_port=$(python3 -c 'import os,urllib.parse; print(urllib.parse.urlparse(os.environ["HTTPS_PROXY"]).port or 80)')

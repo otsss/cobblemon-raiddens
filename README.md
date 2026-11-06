@@ -4,6 +4,20 @@ Projeto independente para Minecraft Java 1.21.1, Fabric e Cobblemon 1.8.3.
 
 **Estado: 0.1.0-dev, em desenvolvimento. Não há Release v1.0.0 aprovada.** O JAR compila e o ciclo básico do boss foi testado em servidor dedicado; combate com três jogadores e distribuição real de recompensas ainda precisam de validação.
 
+## Migração para batalhas tradicionais
+
+A branch `feature/traditional-world-boss` inicia a migração solicitada. A
+[auditoria multiplayer](docs/COBBLEMON_MULTIPLAYER_AUDIT.md) compara Raid Dens
+0.13.4, Cobblemon 1.8.3 e SkiesClear 1.1.2. O núcleo `RaidBattleLedger` já testa
+HP único e contabilidade por sessão, mas **ainda não está conectado ao combate**.
+O comportamento descrito abaixo é o legado; não atende ao requisito de escolher
+movimentos em batalhas tradicionais e não deve ser apresentado como produto final.
+
+`maxConcurrentPlayers` tem padrão 100; o nome antigo `maximumParticipants` continua
+aceito, preservando valores personalizados. Esse limite é uma meta configurável,
+não capacidade de 100 batalhas comprovada. Não aumentar silenciosamente uma
+configuração existente. Resultados desta branch: [validação](docs/VALIDACAO_MULTIPLAYER.md).
+
 ## Funcionamento
 
 Um boss Pokémon aparece a cada duas horas em uma arena configurada. Jogadores enviam seus Pokémon e usam `/raid atacar` para iniciar ataques automáticos em tempo real. O boss tem HP virtual compartilhado, contribuição individual e recompensas por peso/faixa de dano. A integração não cria batalhas Showdown para simular a raid.
