@@ -6,6 +6,10 @@ Projeto independente para Minecraft Java 1.21.1, Fabric e Cobblemon 1.8.3.
 
 ## Migração para batalhas tradicionais
 
+Destino de desenvolvimento: [otsss/cobblemon-raiddens](https://github.com/otsss/cobblemon-raiddens),
+branch `feature/traditional-world-boss`. Esta branch preserva o histórico do
+Shirokai Raids; a branch `master` mantém o projeto Raid Dens de referência.
+
 A branch `feature/traditional-world-boss` inicia a migração solicitada. A
 [auditoria multiplayer](docs/COBBLEMON_MULTIPLAYER_AUDIT.md) compara Raid Dens
 0.13.4, Cobblemon 1.8.3 e SkiesClear 1.1.2. O núcleo `RaidBattleLedger` já testa

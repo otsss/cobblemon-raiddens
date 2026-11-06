@@ -7,6 +7,11 @@ Etapa 1 (auditoria) e preparação do núcleo da etapa 2, na branch
 tradicional conectado ao núcleo. O JAR desta etapa mantém o combate automático
 legado; não é uma versão oficial nem deve substituir o servidor de produção.
 
+O destino autorizado para esta branch é `otsss/cobblemon-raiddens`. O histórico
+Shirokai é preservado nesta branch separada, sem substituir a `master` do Raid
+Dens. A tentativa anterior de envio a `istwi/Shirokai-Raids` foi recusada por
+permissão; esse repositório permanece apenas como origem histórica.
+
 Fontes: Raid Dens 0.13.4 e HEAD 0.13.5 comparados; Cobblemon 1.8.3 e SkiesClear
 1.1.2 inspecionados. Identidades, evidências e decisão estão em
 [COBBLEMON_MULTIPLAYER_AUDIT.md](COBBLEMON_MULTIPLAYER_AUDIT.md).
